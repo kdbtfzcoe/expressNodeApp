@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const path = require("path");
 
 
 const http = require('http');
 const server = http.createServer(app);
 
+app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 app.get('/', (req, res)=> {
     res.send(`
@@ -39,7 +41,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background-image: url('./assets/image.jpg'); /* Replace with your image path */
+    background-image: url('/assets/image.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -230,7 +232,9 @@ const submitBookReqForm = require('./API/submit');
 
 app.use("/submit", submitBookReqForm);
 
-/* start the server locally
+/*
+
+// start the server locally
 
 const PORT = 5000;
 
@@ -239,7 +243,6 @@ app.listen(PORT, () => {
 });
 
 */
-
 
 // start the server microsoft azure
 
