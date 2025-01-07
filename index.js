@@ -8,7 +8,8 @@ const path = require("path");
 const http = require('http');
 const server = http.createServer(app);
 
-app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/assets", express.static(path.join(__dirname, "wwwroot", "assets")));
+
 
 app.get('/', (req, res)=> {
     res.send(`
@@ -243,7 +244,6 @@ app.listen(PORT, () => {
 });
 
 */
-
 
 
 // start the server microsoft azure
