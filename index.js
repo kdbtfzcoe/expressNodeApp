@@ -7,6 +7,8 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 
 app.get('/', (req, res)=> {
     res.send(`
@@ -32,7 +34,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background:  #f5c531;
+    background: url('/assets/image.jpg') no-repeat center center;;
     background-size: cover;
     background-position: center;
     height: 100vh;
