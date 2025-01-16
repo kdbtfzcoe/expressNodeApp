@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Form = require("../Models/bookReqForm"); // Import the Mongoose model
+const Form = require("../Models/bookReqForm");
 
 router.post("/", async (req, res) => {
     const { name, age, email, address, bookGenre, bookTitle, bookAuthor, yearOfPublication } = req.body;
 
     try {
-        // Create a new form document
+        // create a new form document
         const formEntry= new Form({
             name,
             age,
@@ -20,10 +20,10 @@ router.post("/", async (req, res) => {
 
         const savedEntry = await formEntry.save();
 
-
         console.log("Saved Data:", savedEntry);
 
-        // Respond to the client
+        // response
+        
         res.status(201).json({ message: "Form Submitted Successfully", data: savedEntry});
     } catch (error) {
         console.error("Error saving form data:", error);

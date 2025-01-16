@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const FormSchema = new mongoose.Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
-    email: { type: String, required: true, unique: true }, // Ensure this is correct
+    email: { type: String, required: true }, 
     address: { type: String, required: true },
     bookGenre: { type: String, required: true },
     bookTitle: { type: String, required: true },
@@ -11,7 +11,6 @@ const FormSchema = new mongoose.Schema({
     yearOfPublication: { type: Number, required: true },
 });
 
-// Ensure this is running and the collection is created with a unique index
 module.exports = mongoose.model("Form", FormSchema);
 
 

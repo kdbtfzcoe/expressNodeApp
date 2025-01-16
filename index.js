@@ -7,6 +7,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 
+// to be displayed para malaman if nagana
 
 app.get('/', (req, res)=> {
     res.send('Server is running');
@@ -33,7 +34,7 @@ app.use(express.json());
 
 const submitBookReqForm = require('./API/submit');
 
-//use API
+// use API
 
 app.use("/submit", submitBookReqForm);
 
@@ -50,7 +51,7 @@ app.listen(PORT, () => {
 */
 
 
-// start the server microsoft azure
+// start the server in microsoft azure
 
 const PORT = process.env.PORT || 3000
 
